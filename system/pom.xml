@@ -4,11 +4,58 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>yadmin</artifactId>
         <groupId>com.zhou.example.yadmin</groupId>
+        <artifactId>yadmin</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>system</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.zhou.example.yadmin</groupId>
+            <artifactId>generator</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.zhou.example.yadmin</groupId>
+            <artifactId>tools</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!--jwt-->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>${jjwt.version}</version>
+        </dependency>
+
+        <!--websocket-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
+        </dependency>
+
+        <!-- quartz -->
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <!-- 跳过单元测试 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

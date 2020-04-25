@@ -4,11 +4,41 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>yadmin</artifactId>
         <groupId>com.zhou.example.yadmin</groupId>
+        <artifactId>yadmin</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>tools</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.zhou.example.yadmin</groupId>
+            <artifactId>logging</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!--邮件依赖-->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+        </dependency>
+
+        <!--七牛云存储-->
+        <dependency>
+            <groupId>com.qiniu</groupId>
+            <artifactId>qiniu-java-sdk</artifactId>
+        </dependency>
+
+        <!--支付宝依赖-->
+        <dependency>
+            <groupId>com.alipay.sdk</groupId>
+            <artifactId>alipay-sdk-java</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+        </dependency>
+    </dependencies>
 </project>

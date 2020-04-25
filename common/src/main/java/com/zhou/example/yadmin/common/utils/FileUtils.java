@@ -89,7 +89,7 @@ public class FileUtils extends org.apache.commons.io.FileUtils
      *
      * @return
      */
-    public static String getSize(int size)
+    public static String getSize(long size)
     {
         return byteCountToDisplaySize(size);
     }

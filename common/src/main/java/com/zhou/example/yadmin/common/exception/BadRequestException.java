@@ -73,6 +73,16 @@ public class BadRequestException extends BaseException
         return new BadRequestException(ERROR_CODE_MODULE_TOOLS, message, cause);
     }
 
+    public static BadRequestException newExceptionByGenerator(String message)
+    {
+        return new BadRequestException(ERROR_CODE_MODULE_GENERATOR, message);
+    }
+
+    public static BadRequestException newExceptionByGenerator(String message, Throwable cause)
+    {
+        return new BadRequestException(ERROR_CODE_MODULE_GENERATOR, message, cause);
+    }
+
     public static BadRequestException newExceptionByCommon(String message)
     {
         return new BadRequestException(ERROR_CODE_MODULE_COMMON, message);

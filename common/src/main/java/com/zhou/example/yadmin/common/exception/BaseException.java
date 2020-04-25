@@ -26,6 +26,7 @@ public class BaseException extends RuntimeException
     public static final int ERROR_CODE_MODULE_SYSTEM = 900009;
     public static final int ERROR_CODE_MODULE_LOGGING = 910009;
     public static final int ERROR_CODE_MODULE_TOOLS = 920009;
+    public static final int ERROR_CODE_MODULE_GENERATOR = 930009;
     public static final int ERROR_CODE_MODULE_COMMON = 990009;
 
     /**
