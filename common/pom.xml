@@ -5,7 +5,7 @@
 
     <parent>
         <artifactId>yadmin</artifactId>
-        <groupId>com.zhou.example.yadmin</groupId>
+        <groupId>com.zhou.yadmin</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 

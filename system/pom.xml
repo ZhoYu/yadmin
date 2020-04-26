@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.zhou.example.yadmin</groupId>
+        <groupId>com.zhou.yadmin</groupId>
         <artifactId>yadmin</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
@@ -13,12 +13,12 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.zhou.example.yadmin</groupId>
+            <groupId>com.zhou.yadmin</groupId>
             <artifactId>generator</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.zhou.example.yadmin</groupId>
+            <groupId>com.zhou.yadmin</groupId>
             <artifactId>tools</artifactId>
             <version>${project.parent.version}</version>
         </dependency>

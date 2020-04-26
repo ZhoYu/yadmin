@@ -8,7 +8,7 @@ yadmin是一个前后端分离的权限管理系统，权限控制采用 RBAC �
 - 持久层框架：Spring boot Jpa
 - 安全框架：Spring Security
 - 缓存框架：Redis
-- 日志打印：logback+log4jdbc
+- 日志打印：logback
 - 接口文档 swagger2
 - 其他：jackson，aop，MapStruct等。
 
