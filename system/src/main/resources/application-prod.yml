@@ -1,0 +1,20 @@
+#配置数据源
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://localhost:3306/eladmin?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=UTC
+      username: root
+      password: BnfEOh5di1lwRPe7GPzZ7f6BI8wUK6yluTpgu+AHF+voimxz8IvFh0GCwcKo4R36Bp9DbnQ9ukYBf+ew2uXiXg==
+      connect-properties:
+        config.decrypt: true
+        config.decrypt.key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJy+tlmCWpOV5Dnuxyi8wWZeihqOdUDZF2Z/xi2kMO6IywDTsrU8JH7y7WYewrzSZA9Sg6Xk6NfVlEGbddz3sX8CAwEAAQ==
+
+  #配置 Jpa
+  jpa:
+    hibernate:
+      # 生产环境设置成 none，避免程序运行时自动更新数据库结构
+      ddl-auto: none
+
+#是否允许生成代码，生产环境设置为false
+generator:
+  enabled: false

@@ -1,0 +1,127 @@
+server:
+  port: 8686
+
+spring:
+  profiles:
+    active: dev
+  data:
+    redis:
+      repositories:
+          enabled: true
+  # 配置数据源
+  datasource:
+    druid:
+      url: jdbc:mysql://localhost:3306/eladmin?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=UTC
+      username: root
+      password: BnfEOh5di1lwRPe7GPzZ7f6BI8wUK6yluTpgu+AHF+voimxz8IvFh0GCwcKo4R36Bp9DbnQ9ukYBf+ew2uXiXg==
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      # 初始化连接大小
+      initial-size: 5
+      # 最小空闲连接数
+      min-idle: 5
+      # 最大并发连接数
+      max-active: 20
+      #配置获取连接等待超时的时间
+      max-wait: 30000
+      # 可关闭的空闲连接间隔时间 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      # 配置连接在池中的最小生存时间
+      min-evictable-idle-time-millis: 300000
+      # 用来检测连接是否有效的 sql
+      validation-query: select '1'
+      # 测连接是否有效  建议配置为 true，不影响性能，并且保证安全性。申请连接的时候检测，
+      test-while-idle: true
+      # 申请连接时执行 validationQuery 检测连接是否有效，做了这个配置会降低性能
+      test-on-borrow: false
+      # 归还连接时执行 validationQuery 检测连接是否有效，做了这个配置会降低性能
+      test-on-return: false
+      # 打开PSCache，并且指定每个连接上PSCache的大小
+      pool-prepared-statements: true
+      max-open-prepared-statements: 20
+      max-pool-prepared-statement-per-connection-size: 20
+      # 配置监控统计拦截的filters
+      filters: config,slf4j,stat,wall,default
+      connect-properties:
+        config.decrypt: true
+        config.decrypt.key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJy+tlmCWpOV5Dnuxyi8wWZeihqOdUDZF2Z/xi2kMO6IywDTsrU8JH7y7WYewrzSZA9Sg6Xk6NfVlEGbddz3sX8CAwEAAQ==
+      filter:
+        slf4j:
+          enabled: true
+          statement-create-after-log-enabled: false
+          statement-log-enabled: false
+          statement-executable-sql-log-enable: true
+          statement-log-error-enabled: true
+          result-set-log-enabled: false
+      stat-view-servlet:
+        # 打开监控
+        enabled: true
+        url-pattern: /druid/*
+        reset-enable: false
+        login-username: admin
+        login-password: 123456
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        enable_lazy_load_no_trans: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    open-in-view: true
+    show-sql: true
+  redis:
+    database: 0
+    #        host:
+    password:
+    cluster:
+      max-redirects: 5
+      nodes: 127.0.0.1:6381,127.0.0.1:6382,127.0.0.1:6383,127.0.0.1:6384,127.0.0.1:6385,127.0.0.1:6386
+    lettuce:
+      pool:
+        max-active: 300
+        max-wait: 2000
+        max-idle: 500
+        min-idle: 8
+    timeout: 5000
+    ttl: 7200000 # 2 * 60 * 60 * 1000 2小时
+  jackson:
+    time-zone: GMT+8
+  application:
+    name: admin-managee
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql:
+              BasicBinder: trace
+        SQL: debug
+
+#jwt
+jwt:
+  header: Authorization
+  secret: mySecret
+  # token 过期时间 2 个小时
+  expiration: 7200000
+  #  expiration: 60000
+  auth:
+    # 授权路径
+    path: /login
+    # 获取用户信息
+    account: /info
+#七牛云
+qiniu:
+  # 文件大小 /M
+  max-size: 5
+
+#验证码有效时间/分钟
+code:
+  expiration: 5
